@@ -4,11 +4,13 @@
   "description": "A simple search for youtube videos with react",
   "main": "server.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nate Alba",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.13.1",
     "babel-core": "^6.13.0",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.13.0",
@@ -16,11 +18,17 @@
     "ejs": "^2.5.1",
     "express": "^4.14.0",
     "express-react-views": "^0.10.2",
+    "foundation-sites": "^6.2.3",
+    "jquery": "^2.2.1",
     "node-jsx": "^0.13.3",
+    "node-sass": "^3.8.0",
+    "nodemon": "^1.10.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
+    "script-loader": "^0.7.0",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.1"
   }
 }
