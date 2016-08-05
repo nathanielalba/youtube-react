@@ -1,4 +1,4 @@
-const { SET_SEARCH_TEXT, SET_SEARCH_RESULTS } from 'types';
+import { SET_SEARCH_TEXT, SET_SEARCH_RESULTS } from 'types';
 
 export const setSearch = (text) => {
   return {

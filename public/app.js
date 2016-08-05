@@ -23164,6 +23164,12 @@
 
 	var _reactRedux = __webpack_require__(182);
 
+	var _actions = __webpack_require__(295);
+
+	var actions = _interopRequireWildcard(_actions);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23175,19 +23181,46 @@
 	var SearchBar = function (_Component) {
 	  _inherits(SearchBar, _Component);
 
-	  function SearchBar() {
+	  function SearchBar(props) {
 	    _classCallCheck(this, SearchBar);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SearchBar).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SearchBar).call(this, props));
+
+	    _this.handleSearch = _this.handleSearch.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(SearchBar, [{
+	    key: 'handleSearch',
+	    value: function handleSearch(e) {
+	      var dispatch = this.props.dispatch;
+
+
+	      e.preventDefault();
+
+	      if (this.refs.search.value.length > 0) {
+	        dispatch(actions.setSearch(this.refs.search.value));
+	        this.refs.search.value = '';
+	      } else {
+	        this.refs.search.focus();
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'search-bar' },
-	        _react2.default.createElement('input', { type: 'text' })
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          'Search for some more videos!!'
+	        ),
+	        _react2.default.createElement(
+	          'form',
+	          { onSubmit: this.handleSearch },
+	          _react2.default.createElement('input', { type: 'text', ref: 'search' })
+	        )
 	      );
 	    }
 	  }]);
@@ -28276,6 +28309,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(208);
+
 	var _reactRedux = __webpack_require__(182);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -28301,6 +28336,11 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/search' },
+	          'Search for more'
+	        ),
 	        _react2.default.createElement(
 	          'h3',
 	          null,
@@ -30118,6 +30158,33 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 295 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.setResults = exports.setSearch = undefined;
+
+	var _types = __webpack_require__(290);
+
+	var setSearch = exports.setSearch = function setSearch(text) {
+	  return {
+	    type: _types.SET_SEARCH_TEXT,
+	    payload: text
+	  };
+	};
+
+	var setResults = exports.setResults = function setResults(results) {
+	  return {
+	    type: _types.SET_SEARCH_RESULTS,
+	    payload: results
+	  };
+	};
 
 /***/ }
 /******/ ]);
