@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   render() {
     return(
       <div className="search-bar">
@@ -9,3 +10,5 @@ export default class SearchBar extends Component {
     )
   }
 }
+
+export default connect()(SearchBar);

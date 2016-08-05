@@ -25,6 +25,8 @@ module.exports = {
     alias: {
       applicationStyles: 'app/styles/app.scss',
       types: 'app/actions/types.jsx',
+      reducers: 'app/reducers/index.jsx',
+      actions: 'app/actions/index.jsx',
       SearchApp: 'app/components/app.jsx',
       SearchBar: 'app/components/SearchBar.jsx',
       SearchResults: 'app/components/SearchResults.jsx'

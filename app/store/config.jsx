@@ -10,7 +10,7 @@ export const config = (initialState = {}) => {
   });
 
   var store = redux.createStore(reducer, initialState, redux.compose(
-    redux.appleMiddleware(thunk)
+    redux.applyMiddleware(thunk)
   ));
 
   return store;
