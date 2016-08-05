@@ -6,8 +6,8 @@ export default class App extends Component {
     return(
       <div className="row">
         <div className="column large-5">
+          {this.props.children}
         </div>
-        <SearchBar />
       </div>
     )
   }

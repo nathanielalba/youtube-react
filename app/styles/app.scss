@@ -3,3 +3,7 @@
 @import "base/foundation-settings";
 @import "foundation";
 @include foundation-everything;
+
+
+// my custom scss
+@import "components/search-bar";

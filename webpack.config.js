@@ -23,7 +23,11 @@ module.exports = {
   resolve: {
     root: __dirname,
     alias: {
-      applicationStyles: 'app/styles/app.scss'
+      applicationStyles: 'app/styles/app.scss',
+      types: 'app/actions/types.jsx',
+      SearchApp: 'app/components/app.jsx',
+      SearchBar: 'app/components/SearchBar.jsx',
+      SearchResults: 'app/components/SearchResults.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
