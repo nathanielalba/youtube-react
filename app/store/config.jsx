@@ -5,7 +5,7 @@ import { searchReducer, resultsReducer } from 'reducers';
 
 export const config = (initialState = {}) => {
   var reducer = redux.combineReducers({
-    searchText: searchReducer,
+    search: searchReducer,
     results: resultsReducer
   });
 

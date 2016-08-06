@@ -1,18 +1,31 @@
-import axios from 'axios';
-import { SET_SEARCH_TEXT, SET_SEARCH_RESULTS } from 'types';
+import { SET_SEARCH, SET_SEARCH_RESULTS } from 'types';
 
-export const searchReducer = (state = '', action) => {
+const defaultSelectedVideo = {
+  video: 0
+}
+
+export const searchReducer = (state = [], action) => {
   switch(action.type) {
-    case SET_SEARCH_TEXT:
-      return action.payload;
+    case SET_SEARCH:
+      return state;
   }
   return state;
 }
 
-export const searchResults = (state = [], action) => {
+export const resultsReducer = (state = [], action) => {
   switch(action.type) {
     case SET_SEARCH_RESULTS:
-      return state;
+      return [...action.payload];
+  }
+  return state;
+}
+
+
+
+export const selectedVideoReducer = (state = defaultSelectedVideo, action) => {
+  switch(action.type) {
+    case SET_SELECTED_VIDEO:
+      return [...action.payload];
   }
   return state;
 }

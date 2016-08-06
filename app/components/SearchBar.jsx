@@ -17,7 +17,6 @@ class SearchBar extends Component {
 
     if(this.refs.search.value.length > 0) {
       dispatch(actions.setSearch(this.refs.search.value))
-      this.refs.search.value = '';
     } else {
       this.refs.search.focus();
     }
@@ -26,7 +25,6 @@ class SearchBar extends Component {
   render() {
     return(
       <div className="search-bar">
-        <h4>Search for some more videos!!</h4>
         <form onSubmit={this.handleSearch} >
           <input type="text" ref="search" />
         </form>
