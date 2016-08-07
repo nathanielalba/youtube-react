@@ -1,30 +1,30 @@
 import { SET_SEARCH, SET_SEARCH_RESULTS, SET_SELECTED_VIDEO } from 'types';
 import YoutubeSearch from 'youTubeAPI';
 
-export const setSearch = (text) => {
-  let videos = [];
-
-  const promise = new Promise((resolve, reject) => {
-    YoutubeSearch(text, (data) => {
-      console.log(data);
-      videos.concat(data);
-      return data;
+export function fetchVideos(terms) {
+  return function(dispatch) {
+    return YoutubeSearch(terms, (data) => {
+      dispatch(setResults(data));
     });
+  }
+}
 
-    resolve();
-  })
-
-  promise.then(() => {
-    console.log(videos);
-  });
-
+export function setSearchText(text) {
   return {
     type: SET_SEARCH,
     payload: text
-  };
+  }
+}
+
+
+export function setSearch(text) {
+  return dispatch => {
+    dispatch(fetchVideos(text));
+    dispatch(setSearchText(text));
+  }
 };
 
-export const setResults = (results) => {
+export function setResults(results) {
   return {
     type: SET_SEARCH_RESULTS,
     payload: results

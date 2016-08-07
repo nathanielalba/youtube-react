@@ -4,10 +4,10 @@ const defaultSelectedVideo = {
   video: 0
 }
 
-export const searchReducer = (state = [], action) => {
+export const searchReducer = (state = '', action) => {
   switch(action.type) {
     case SET_SEARCH:
-      return state;
+      return action.payload;
   }
   return state;
 }
