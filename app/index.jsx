@@ -15,7 +15,7 @@ const store = config();
 
 ReactDOM.render(
   <Provider store={store}>
-    { router }
+    <App />
   </Provider>,
   document.getElementById('app')
 );

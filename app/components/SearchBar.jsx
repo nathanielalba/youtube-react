@@ -12,7 +12,6 @@ class SearchBar extends Component {
 
   handleSearch(e) {
     const { dispatch } = this.props;
-
     e.preventDefault();
 
     if(this.refs.search.value.length > 0) {

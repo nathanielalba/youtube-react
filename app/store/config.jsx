@@ -4,7 +4,7 @@ import { setSearch } from 'actions';
 
 import { searchReducer, resultsReducer } from 'reducers';
 
-export const config = (initialState = {}) => {
+export const config = (initialState = {search: '', results: []}) => {
   var reducer = redux.combineReducers({
     search: searchReducer,
     results: resultsReducer
@@ -14,9 +14,9 @@ export const config = (initialState = {}) => {
     redux.applyMiddleware(thunk)
   ));
 
-  let unsubscribe = store.subscribe(() => {
-    console.log(store.getState());
-  });
+  // store.subscribe(() => {
+  //   console.log(store.getState());
+  // });
 
   return store;
 };

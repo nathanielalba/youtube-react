@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import SearchBar from './SearchBar';
-import SearchResults from './SearchResults';
+import { connect } from 'react-redux';
 
-export default class App extends Component {
+import * as actions from 'actions';
+import SearchBar from 'SearchBar';
+import SearchResults from 'SearchResults';
+
+class App extends Component {
   render() {
     return(
       <div className="row">
@@ -16,3 +19,12 @@ export default class App extends Component {
     )
   }
 };
+
+function mapStateToProps(state) {
+  return {
+    search: state.search,
+    results: state.results
+  }
+}
+
+export default connect(mapStateToProps)(App);

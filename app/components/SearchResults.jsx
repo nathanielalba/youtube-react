@@ -8,8 +8,12 @@ class SearchResults extends Component {
     this.renderResults = this.renderResults.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+  }
+
   renderResults() {
-      if(this.props.todos) {
+      if(this.props.results) {
         return (
           <ul>
             {this.props.search.map((item) => {
@@ -18,21 +22,22 @@ class SearchResults extends Component {
           </ul>
         )
       }
-      return (<p>Search for something!</p>);
+      return (<h3>Search for something!</h3>);
   }
 
   render() {
     return(
-      <div className="row">
-        <div className="large-3"></div>
-        <div className="large-6 large-centered">
-          <h3>Something cool</h3>
-          {this.renderResults()}
-        </div>
+      <div className="search-results">
+        {this.props.results}
       </div>
     )
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    results: state.results
+  }
+}
 
-export default connect()(SearchResults);
+export default connect(mapStateToProps)(SearchResults);
