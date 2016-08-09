@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import ListVideo from './ListVideo';
+
 class SearchResults extends Component {
   constructor(props) {
     super(props);
@@ -9,26 +11,24 @@ class SearchResults extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
+    this.renderResults();
   }
 
   renderResults() {
-      if(this.props.results) {
-        return (
-          <ul>
-            {this.props.search.map((item) => {
-              <li>item</li>
-            })}
-          </ul>
-        )
-      }
-      return (<h3>Search for something!</h3>);
   }
 
   render() {
     return(
       <div className="search-results">
-        {this.props.results}
+        <h3>Search for something!</h3>
+        <ul>
+        {console.log(this.props.results)}
+        {
+          this.props.results.map(video => {
+            return <ListVideo videoId={video.id.videoId}></ListVideo>;
+          })
+        }
+        </ul>
       </div>
     )
   }
